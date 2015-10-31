@@ -551,7 +551,7 @@ void static PolcoinMiner(CWallet *pwallet)
     }
 }
 
-void GeneratePolcoins(bool fGenerate, CWallet* pwallet, int nThreads)
+void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
 {
     static boost::thread_group* minerThreads = NULL;
 
