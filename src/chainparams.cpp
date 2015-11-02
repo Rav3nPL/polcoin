@@ -36,7 +36,7 @@ public:
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
         consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // two weeks
+        consensus.nPowTargetTimespan = 0.25 * 24 * 60 * 60; // 6 hours
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         /** 
@@ -69,7 +69,7 @@ public:
         txNew.vin.resize(1);
         txNew.vout.resize(1);
 	txNew.vin[0].scriptSig = CScript() << 0xa6736083 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 50; //* COIN;
+        txNew.vout[0].nValue = 50;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("506177656c2044726f62656b203230313430383036") << OP_CHECKSIG; //Paweł Drobek 20140806
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock.SetNull();
@@ -103,7 +103,6 @@ public:
 
         checkpointData = (Checkpoints::CCheckpointData) {
             boost::assign::map_list_of
-            (     0, uint256S("0x5582ea402d65bd7445949da32c96217ae98d128a1afb37c78afd79df3d23b105"))
             ( 33333, uint256S("0x000000000006e074f863a3f20c315084019b94a81663391a29fc461e0d7a6c7d"))
             ( 74000, uint256S("0x000000000002007724fdf5d10bdbb8adfcfeb89b9c8f521a55a697c2517de18a"))
             (105000, uint256S("0x000000000002358d3afa0b3229cf455239639a8d251285eed17e03029d17d890"))
